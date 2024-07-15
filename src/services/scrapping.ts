@@ -6,7 +6,7 @@ import { REGEXES } from '../common/regexes';
 export const handleGetId = async (id: string) => {
   try {
     const res = await axios.post(
-      'https://emma.maryland.gov/page.aspx/en/rfp/request_browse_public',
+      '/api/page.aspx/en/rfp/request_browse_public',
       {},
       {
         params: {
@@ -36,7 +36,7 @@ export const handleGetId = async (id: string) => {
 export const handleScrapPage = async (id: string, bidId: string) => {
   try {
     const response = await axios.get(
-      `https://emma.maryland.gov/page.aspx/en/bpm/process_manage_extranet/${id}`
+      `/api/page.aspx/en/bpm/process_manage_extranet/${id}`
     );
     const html = response.data;
     const page = load(html);
